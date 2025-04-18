@@ -115,17 +115,8 @@
 
 </section>
 
-<!-- Footer -->
-<footer class="bg-gray-100 py-8 px-10">
-    <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center text-center md:text-left gap-4">
-        <div class="font-bold"><i class="ri-car-fill"></i> Car Rental</div>
-        <div class="text-sm">
-            <p>1234 Example St, NY 12345</p>
-            <p>Email: contact@carrental.com</p>
-            <p>Phone: (555) 123-4567</p>
-        </div>
-        <div class="text-sm text-gray-500">© 2025 Car Rental. All rights reserved.</div>
-    </div>
+<footer>
+    @include("footer")
 </footer>
 </body>
 </html>
