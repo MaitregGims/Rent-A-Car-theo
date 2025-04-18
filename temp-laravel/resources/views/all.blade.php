@@ -1,63 +1,41 @@
 <html>
 @include("header")
+
 <main class="max-w-7xl mx-auto p-6">
     <h1 class="text-3xl font-bold text-center mb-6">
         Select a vehicle group
     </h1>
     <div class="flex justify-center space-x-4 mb-6">
-        <button class="px-4 py-2 bg-purple-600 text-white rounded-full">
-            All Vehicles
-        </button>
-        <button class="px-4 py-2 bg-gray-200 text-gray-600 rounded-full">
-            sedant
-        </button>
-        <button class="px-4 py-2 bg-gray-200 text-gray-600 rounded-full">
-            cabriolet
-        </button>
-        <button class="px-4 py-2 bg-gray-200 text-gray-600 rounded-full">
-            pickup
-        </button>
-        <button class="px-4 py-2 bg-gray-200 text-gray-600 rounded-full">
-            suv
-        </button>
-        <button class="px-4 py-2 bg-gray-200 text-gray-600 rounded-full">
-            minivan
-        </button>
-    </div>
-
-
-    <div class="flex justify-center space-x-4 mb-6">
-        <button class="px-4 py-2 bg-purple-600 text-white rounded-full">
-            All energy type
-        </button>
-        <button class="px-4 py-2 bg-gray-200 text-gray-600 rounded-full">
-            essence
-        </button>
-        <button class="px-4 py-2 bg-gray-200 text-gray-600 rounded-full">
-            electrique
-        </button>
-        <button class="px-4 py-2 bg-gray-200 text-gray-600 rounded-full">
-            hybride
-        </button>
-        <button class="px-4 py-2 bg-gray-200 text-gray-600 rounded-full">
-            diesel
-        </button>
+        <button class="px-4 py-2 bg-purple-600 text-white rounded-full car_filter" data-value="">All Vehicles</button>
+        <button class="px-4 py-2 bg-gray-200 text-gray-600 rounded-full car_filter" data-value="sedan">sedan</button>
+        <button class="px-4 py-2 bg-gray-200 text-gray-600 rounded-full car_filter" data-value="cabriolet">cabriolet</button>
+        <button class="px-4 py-2 bg-gray-200 text-gray-600 rounded-full car_filter" data-value="pickup">pickup</button>
+        <button class="px-4 py-2 bg-gray-200 text-gray-600 rounded-full car_filter" data-value="suv">suv</button>
+        <button class="px-4 py-2 bg-gray-200 text-gray-600 rounded-full car_filter" data-value="minivan">minivan</button>
+        <button class="px-4 py-2 bg-gray-200 text-gray-600 rounded-full car_filter" data-value="crossover">crossover</button>
     </div>
 
     <div class="flex justify-center space-x-4 mb-6">
-        <button class="px-4 py-2 bg-purple-600 text-white rounded-full">
-            All type of gears
-        </button>
-        <button class="px-4 py-2 bg-gray-200 text-gray-600 rounded-full">
-            electrique
-        </button>
-        <button class="px-4 py-2 bg-gray-200 text-gray-600 rounded-full">
-            manual
-        </button>
+        <button class="px-4 py-2 bg-purple-600 text-white rounded-full energy_filter" data-value="">All energy type</button>
+        <button class="px-4 py-2 bg-gray-200 text-gray-600 rounded-full energy_filter" data-value="essence">essence</button>
+        <button class="px-4 py-2 bg-gray-200 text-gray-600 rounded-full energy_filter" data-value="electrique">electrique</button>
+        <button class="px-4 py-2 bg-gray-200 text-gray-600 rounded-full energy_filter" data-value="hybride">hybride</button>
+        <button class="px-4 py-2 bg-gray-200 text-gray-600 rounded-full energy_filter" data-value="diesel">diesel</button>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        @foreach($cars as $car)
+    <div class="flex justify-center space-x-4 mb-6">
+        <button class="px-4 py-2 bg-purple-600 text-white rounded-full gear_filter" data-value="">All type of gears</button>
+        <button class="px-4 py-2 bg-gray-200 text-gray-600 rounded-full gear_filter" data-value="automatique">automatique</button>
+        <button class="px-4 py-2 bg-gray-200 text-gray-600 rounded-full gear_filter" data-value="manuelle">manuelle</button>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="car-list">
+
+
+
+
+
+    @foreach($cars as $car)
             <div class="border p-4 rounded-xl shadow-md">
                 <div class="bg-gray-200 h-40 mb-4 rounded"></div>
                 <div class="flex justify-between items-center mb-2">
@@ -91,5 +69,6 @@
 
     @include("footer")
 </footer>
+<script src="{{ asset('js/filters.js') }}"></script>
 </body>
 </html>

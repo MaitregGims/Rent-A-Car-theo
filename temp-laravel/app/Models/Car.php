@@ -24,6 +24,13 @@ class Car extends Model
         'vehicule_stype_id',
     ];
 
+    public function carType()
+    {
+        return $this->belongsTo(CarType::class, 'vehicule_type_id');
+    }
+
+
+
     public $timestamps = false;
 
 }

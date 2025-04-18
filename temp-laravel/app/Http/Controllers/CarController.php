@@ -44,4 +44,39 @@ class CarController extends Controller
         return view('details', ["car" => $data, "info" => $carinfo, "cars" => $recommendations]);
     }
 
+
+    public function filter(Request $request)
+    {
+        $filters = $request->only(['car', 'energy', 'gear']);
+
+        $query = Car::query()->with('carType');
+
+        if ($filters['car']) {
+            $query->whereHas('carType', function ($q) use ($filters) {
+                $q->where('name', $filters['car']);
+            });
+        }
+
+        if ($filters['energy']) {
+            $query->where('fuel_type', $filters['energy']);
+        }
+
+        if ($filters['gear']) {
+            $query->where('transmission', $filters['gear']);
+        }
+
+        $cars = $query->get();
+
+        return response()->json([
+            'status' => 'success',
+            'cars' => $cars
+        ]);
+    }
+
+
+
+
+
+
+
 }
